@@ -1,0 +1,33 @@
+{
+  "name": "{{name}}",
+  "version": "0.0.1",
+  "private": false,
+  "author": "{{author}}",
+  "description": "{{description}}",
+  "repository": "{{repo}}",
+  "license": "{{license}}",
+  "scripts": {
+    "build": "{{manager}} build:cjs && {{manager}} build:esm && {{manager}} build:es && {{manager}} build:umd && {{manager}} build:copy-files",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./scripts/babel.config.js ./src --out-dir ./build --ignore \"**/*.test.js\"",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel --config-file ./scripts/babel.config.js ./src --out-dir ./build/esm --ignore \"**/*.test.js\"",
+    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --config-file ./scripts/babel.config.js ./src --out-dir ./build/es --ignore \"**/*.test.js\"",
+    "build:umd": "cross-env BABEL_ENV=production-umd rollup -c scripts/rollup.config.js",
+    "build:copy-files": "node ./scripts/copy-files.js",
+    "prebuild": "rimraf build",
+    "release": "{{manager}} build && {{manager}} publish build"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5"
+  }
+}
