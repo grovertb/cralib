@@ -16,13 +16,13 @@ module.exports = override(
     return config
   },
   addWebpackAlias({
-    '{{name}}': path.resolve(__dirname, "../packages/library/src")
+    '{{name}}': path.resolve(__dirname, "../packages/{{name}}/src")
   }),
   addBabelPlugin([
     "babel-plugin-module-resolver", {
       // "root": ["./src"],
       "alias": {
-        "{{name}}": path.resolve(__dirname, "../packages/library/src"),
+        "{{name}}": path.resolve(__dirname, "../packages/{{name}}/src"),
       },
       transformFunctions: ['require', 'require.context'],
     }

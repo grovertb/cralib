@@ -1,5 +1,5 @@
 {
-  "name": "{{name}}-example",
+  "name": "{{name}}-docs",
   "homepage": "https://{{author}}.github.io/{{name}}",
   "version": "0.0.0",
   "private": true,

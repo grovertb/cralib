@@ -14,8 +14,8 @@
     "noErrorTruncation": true,
     "allowJs": true,
     "paths": {
-      "{{name}}": ["./packages/library/src"],
-      "{{name}}/*": ["./packages/library/src/*"]
+      "{{name}}": ["./packages/{{name}}/src"],
+      "{{name}}/*": ["./packages/{{name}}/src/*"]
     }
   },
   "exclude": ["**/build/"]

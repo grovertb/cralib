@@ -17,7 +17,7 @@ if (process.env.BABEL_ENV === 'es') {
 }
 
 const defaultAlias = {
-  '{{name}}': './packages/library/src'
+  '{{name}}': './packages/{{name}}/src'
 };
 
 const productionPlugins = [
