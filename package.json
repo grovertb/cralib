@@ -1,6 +1,6 @@
 {
   "name": "cralib",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CLI for easily bootstrapping modern react libraries",
   "repository": {
     "type": "git",
