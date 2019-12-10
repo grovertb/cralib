@@ -17,7 +17,7 @@ async function includeFileInBuild(file) {
 /**
  * Puts a package.json into every immediate child directory of rootDir.
  * That package.json contains information about esm for bundlers so that imports
- * like import Typography from '@krowdy-ui/core/Typography' are tree-shakeable.
+ * like import Label from '{{name}}/Label' are tree-shakeable.
  *
  * It also tests that an this import can be used in typescript by checking
  * if an index.d.ts is present at that path.
@@ -87,7 +87,7 @@ async function prepend(file, string) {
 }
 
 async function addLicense(packageData) {
-  const license = `/** @license Krowdy-UI v${packageData.version}
+  const license = `/** @license ${packageData.name} v${packageData.version}
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,8 +97,8 @@ async function addLicense(packageData) {
     [
       './index.js',
       './esm/index.js',
-      './umd/krowdy-ui.development.js',
-      './umd/krowdy-ui.production.min.js',
+      `./umd/${packageData.name}.development.js`,
+      `./umd/${packageData.name}.production.min.js`,
     ].map(async file => {
       try {
         await prepend(path.resolve(buildPath, file), license);
@@ -119,8 +119,8 @@ async function run() {
 
     await Promise.all(
       [
-        // use enhanced readme from workspace root for `@krowdy-ui/core`
-        packageData.name === '@krowdy-ui/core' ? '../../README.md' : './README.md',
+        // use enhanced readme from workspace root for `{{name}}`
+        packageData.name === '{{name}}' ? '../../README.md' : './README.md',
         '../../CHANGELOG.md',
         '../../LICENSE',
       ].map(file => includeFileInBuild(file)),
