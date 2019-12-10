@@ -8,7 +8,7 @@
 ## Intro
 
 <p align="center">
-  <img width="600" src="https://cdn.rawgit.com/grovertb/cralib/master/media/demo.svg">
+  <img width="600" src="https://raw.githubusercontent.com/grovertb/cralib/master/media/demo.svg">
 </p>
 
 
